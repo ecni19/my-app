@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="content">
+    <div class="sprite">
+      <img [src]="sprite" alt="">
+    </div>
+    <div class="abilities">
+      <h2>ABILITIES</h2>
+      <div *ngFor="let ability of pokemon.abilities">
+        {{ability.ability.name}}
+      </div>
+    </div>
+    <div class="moves">
+      <h2>MOVESET</h2>
+      <div class="overflow">
+        <ul *ngFor="let move of pokemon.moves">
+          <li>{{move.move.name}}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="exit" (click)="exit.emit(null)">
+      X
+    </div>
+  </div>
+</div>
