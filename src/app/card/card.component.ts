@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-// import { ajax } from 'rxjs/ajax';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-card',
@@ -11,11 +10,11 @@ import { Observable } from 'rxjs';
 export class CardComponent implements OnInit {
   @Input() pokemon: any;
   isClick: boolean = false;
-  constructor(private http: HttpClient) { }
+  constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
-    // const data = ajax(this.pokemon.url);
-    const data: Observable<any> = this.http.get(this.pokemon.url);
+    
+    const data: Observable<any> = this.apiService.SendGetRequest(this.pokemon.url);
     data.subscribe(res => {
       this.pokemon = res;
       console.log(this.pokemon);
