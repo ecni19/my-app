@@ -2,18 +2,21 @@
   <div class="content">
     <div class="sprite">
       <img [src]="sprite" alt="">
+      <div *ngFor="let type of pokemon.types" class="types">
+        {{type.type.name[0].toUpperCase() + type.type.name.slice(1)}}
+      </div>
     </div>
     <div class="abilities">
       <h2>ABILITIES</h2>
       <div *ngFor="let ability of pokemon.abilities">
-        {{ability.ability.name}}
+        {{ability.ability.name[0].toUpperCase() + ability.ability.name.slice(1)}}
       </div>
     </div>
     <div class="moves">
       <h2>MOVESET</h2>
       <div class="overflow">
         <ul *ngFor="let move of pokemon.moves">
-          <li>{{move.move.name}}</li>
+          <li>{{move.move.name[0].toUpperCase() + move.move.name.slice(1)}}</li>
         </ul>
       </div>
     </div>

@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ajax } from 'rxjs/ajax';
+// import { ajax } from 'rxjs/ajax';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-card',
@@ -9,12 +11,13 @@ import { ajax } from 'rxjs/ajax';
 export class CardComponent implements OnInit {
   @Input() pokemon: any;
   isClick: boolean = false;
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    const data = ajax(this.pokemon.url);
+    // const data = ajax(this.pokemon.url);
+    const data: Observable<any> = this.http.get(this.pokemon.url);
     data.subscribe(res => {
-      this.pokemon = res.response;
+      this.pokemon = res;
       console.log(this.pokemon);
     })
   }

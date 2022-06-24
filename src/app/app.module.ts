@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
 import { CardComponent } from './card/card.component';
 import { ModalComponent } from './modal/modal.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ModalComponent } from './modal/modal.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
