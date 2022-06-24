@@ -1,6 +1,8 @@
 <h1>Pokémon</h1>
 <div class="container">
-    <ul *ngFor="let pokemon of pokemonList.results">
-        <app-card [pokemon]="pokemon"></app-card>
-    </ul>
+  <div class="content">
+      <div *ngFor="let pokemon of pokemonList.results">
+          <app-card [pokemon]="pokemon"></app-card>
+      </div>
+  </div>
 </div>
